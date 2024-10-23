@@ -17,39 +17,35 @@ This repository contains implementations of two classic cryptographic algorithms
 
 ### Modified Caesar Cipher
 
-This implementation extends the traditional Caesar cipher by:
-- Using a randomized substitution alphabet
-- Generating multiple shifts based on the key
-- Supporting an extended character set (uppercase, lowercase, numbers, and special characters)
+This implementation extends the traditional Caesar cipher by using a randomized substitution alphabet, generating multiple shifts based on the key, and supporting an extended character set.
 
 Example usage:
 ```python
-secret = "Hello, this is a secret message!"
-key = "PYTHON"
-encrypted = cipher_caesar_modified(secret, key)
-decrypted = decipher_caesar_modified(encrypted, key)
+secreto = "Hola, este es un mensaje secreto!"
+clave = "PYTHON"
+texto_cifrado = cifrado_cesar_modificado(secreto, clave)
+print("\nTexto cifrado:", texto_cifrado)
+texto_descifrado = descifrado_cesar_modificado(texto_cifrado, clave)
+print("\nTexto descifrado:", texto_descifrado)
 ```
 
 ### Modified Vigenère Cipher
 
-This version enhances the classic Vigenère cipher with:
-- Extended alphabet (uppercase, lowercase, numbers, and special characters)
-- Key expansion for messages longer than the key
-- Preserving non-alphabet characters in the original text
+This version enhances the classic Vigenère cipher with an extended alphabet and key expansion for messages longer than the key.
 
 Example usage:
 ```python
-secret = "THIS IS AN ENCRYPTION EXAMPLE"
-key = "TRUCK"
-encrypted = cipher_vigenere(secret, key)
-decrypted = decipher_vigenere(encrypted, key)
+secreto = "ESTO ES UN EJEMPLO DE CIFRADO"
+clave = "CAMION"
+texto_cifrado = CifrarVigenere(secreto, clave)
+texto_descifrado = DescifrarVigenere(texto_cifrado, clave)
 ```
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/python-ciphers.git
+git clone https://github.com/MateoVR13/Ciphers.git
 ```
 
 2. No additional dependencies are required - the implementation uses only Python standard library.
@@ -60,28 +56,35 @@ git clone https://github.com/yourusername/python-ciphers.git
 
 ## Usage Instructions
 
-1. Import the desired cipher module:
-```python
-from caesar_cipher import cipher_caesar_modified, decipher_caesar_modified
-# or
-from vigenere_cipher import cipher_vigenere, decipher_vigenere
-```
-
+1. Import the cipher modules in your Python script
 2. For Caesar Cipher:
 ```python
 # Encryption
-encrypted_text = cipher_caesar_modified("Your message", "YOUR_KEY")
+texto_cifrado = cifrado_cesar_modificado("Tu mensaje", "TU_CLAVE")
 # Decryption
-decrypted_text = decipher_caesar_modified(encrypted_text, "YOUR_KEY")
+texto_descifrado = descifrado_cesar_modificado(texto_cifrado, "TU_CLAVE")
 ```
 
 3. For Vigenère Cipher:
 ```python
 # Encryption
-encrypted_text = cipher_vigenere("Your message", "YOUR_KEY")
+texto_cifrado = CifrarVigenere("Tu mensaje", "TU_CLAVE")
 # Decryption
-decrypted_text = decipher_vigenere(encrypted_text, "YOUR_KEY")
+texto_descifrado = DescifrarVigenere(texto_cifrado, "TU_CLAVE")
 ```
+
+## Function Descriptions
+
+### Caesar Cipher Functions:
+- `cifrado_cesar_modificado(texto, clave)`: Encrypts the input text using the modified Caesar algorithm
+- `descifrado_cesar_modificado(texto_cifrado, clave)`: Decrypts the encrypted text using the same key
+- `generar_desplazamientos(clave, longitud)`: Generates the shift values based on the key
+
+### Vigenère Cipher Functions:
+- `CifrarVigenere(texto, clave)`: Encrypts the input text using the modified Vigenère algorithm
+- `DescifrarVigenere(texto_cifrado, clave)`: Decrypts the encrypted text
+- `CrearMatriz(alfa)`: Creates the Vigenère matrix using the extended alphabet
+- `ExpandirClave(clave, longitud)`: Expands the key to match the message length
 
 ## Security Considerations
 
